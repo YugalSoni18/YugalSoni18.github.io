@@ -1,0 +1,20 @@
+
+title: Yugal Soni
+description: MSc Business Analytics · Forecasting · NLP · SQL · R · Power BI
+baseurl: "" 
+url: "https://YugalSoni18.github.io"
+theme: minima
+author:
+  name: Yugal Soni
+  email: yugals234@gmail.com
+  linkedin: "https://www.linkedin.com/in/yugal-soni-40900123a/"
+  github: "https://github.com/YugalSoni18"
+show_excerpts: true
+minima:
+  social_links:
+    - {"platform": "github", "user_url": "https://github.com/YugalSoni18"}
+    - {"platform": "linkedin", "user_url": "https://www.linkedin.com/in/yugal-soni-40900123a/"}
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+google_analytics: 

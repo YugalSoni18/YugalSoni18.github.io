@@ -1,0 +1,5 @@
+
+/* Minimal tweaks on top of minima theme */
+.site-title { font-weight:700; }
+.lead { font-size:1.05rem; line-height:1.6; }
+.project-card { border:1px solid #eee; padding:16px; border-radius:12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 18px; }
