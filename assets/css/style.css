@@ -68,6 +68,7 @@ a{color:var(--accent2);text-decoration:none}
   .page{grid-template-columns:1fr}
   .sidebar{position:relative;top:0}
 }
+
 /* Project thumbnail styling */
 .project img {
   width: 100%;
@@ -76,4 +77,11 @@ a{color:var(--accent2);text-decoration:none}
   border-radius: 12px; /* rounded corners */
   margin-bottom: 10px; /* space below image */
   display: block;
+  transition: transform 0.3s ease; /* <-- added */
+}
+
+/* New hover effect */
+.project:hover img {
+  transform: scale(1.05);
+
 }
