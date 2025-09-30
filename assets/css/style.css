@@ -32,10 +32,35 @@ a{color:var(--accent2);text-decoration:none}
 .card{background:#12151b;border:1px solid var(--border);padding:16px;border-radius:14px}
 .card-title{font-weight:700;margin-bottom:6px}
 
-.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-.project{background:#12151b;border:1px solid var(--border);padding:16px;border-radius:14px;display:block}
-.project-title{font-weight:700;margin-bottom:6px}
-.project-meta{color:var(--muted);font-size:14px}
+.projects {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:12px;
+}
+
+.project {
+  background:#12151b;
+  border:1px solid var(--border);
+  padding:16px;
+  border-radius:14px;
+  display:block;
+}
+
+/* Add this new hover effect */
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.project-title {
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.project-meta {
+  color:var(--muted);
+  font-size:14px;
+}
 
 .resume-list{line-height:1.8;color:var(--muted)}
 
