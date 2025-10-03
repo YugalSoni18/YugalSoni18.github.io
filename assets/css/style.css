@@ -205,3 +205,22 @@ a{color:var(--accent2);text-decoration:none}
   text-decoration: none;
 }
 .sidepanel .btn:hover{ transform: translateY(-1px); }
+
+/* === Avatar size override === */
+:root { --avatar-size: 160px; }            /* try 160–180px */
+
+/* Works for both <img class="avatar"> and SVG avatars */
+.sidepanel .avatar{
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  display: block;
+  border-radius: 24px;                      /* keep the rounded look */
+}
+
+/* Optional: a touch more breathing room below the avatar */
+.sidepanel .avatar-wrap{ margin-bottom: 18px; }
+
+/* Optional: scale up a bit more on large screens */
+@media (min-width: 900px){
+  :root { --avatar-size: 176px; }
+}
