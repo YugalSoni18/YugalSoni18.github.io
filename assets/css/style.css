@@ -194,17 +194,6 @@ a{color:var(--accent2);text-decoration:none}
 .social-btn:hover{ transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,.25), inset 0 0 0 1px var(--ring); }
 .social-btn svg{ width: 22px; height: 22px; fill: var(--text); }
 
-/* Make the CV button size nicely inside the sidebar */
-.sidepanel .btn{
-  display: block;              /* block lets auto margins work */
-  width: fit-content;          /* shrink to content */
-  margin: 16px auto 0;         /* centers horizontally */
-  padding: 12px 18px;
-  border-radius: 14px;
-  text-decoration: none;
-}
-.sidepanel .btn:hover{ transform: translateY(-1px); }
-
 /* Works for both <img class="avatar"> and SVG avatars */
 .sidepanel .avatar{
   width: var(--avatar-size);
@@ -219,4 +208,21 @@ a{color:var(--accent2);text-decoration:none}
 /* Optional: scale up a bit more on large screens */
 @media (min-width: 900px){
   :root { --avatar-size: 176px; }
+}
+
+/* Force center the CV button inside the sidebar, regardless of other .btn rules */
+.sidebar.sidepanel .cv-btn-center{
+  display: flex;
+  justify-content: center;   /* centers horizontally */
+}
+
+.sidebar.sidepanel .cv-btn-center .btn{
+  display: inline-flex;      /* keeps size to content */
+  align-items: center;
+  gap: 8px;
+  width: auto !important;    /* beat any width:100% from old styles */
+  margin: 16px 0 0 0;        /* top spacing only; flex handles centering */
+  padding: 12px 18px;
+  border-radius: 14px;
+  text-decoration: none;
 }
