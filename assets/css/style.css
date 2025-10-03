@@ -196,18 +196,14 @@ a{color:var(--accent2);text-decoration:none}
 
 /* Make the CV button size nicely inside the sidebar */
 .sidepanel .btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
+  display: block;              /* block lets auto margins work */
+  width: fit-content;          /* shrink to content */
+  margin: 16px auto 0;         /* centers horizontally */
   padding: 12px 18px;
   border-radius: 14px;
   text-decoration: none;
 }
 .sidepanel .btn:hover{ transform: translateY(-1px); }
-
-/* === Avatar size override === */
-:root { --avatar-size: 160px; }            /* try 160–180px */
 
 /* Works for both <img class="avatar"> and SVG avatars */
 .sidepanel .avatar{
