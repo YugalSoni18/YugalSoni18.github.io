@@ -276,11 +276,45 @@
   color: var(--accent);
   font-weight: 800;
   line-height: 1;
-  flex: 0 0 20px;                     /* fixed column for chevron */
+  flex: 0 0 16px;                     /* fixed column for chevron */
   display: inline-block;
   margin-top: 2px;                    /* slight vertical align */
 }
 
 .resume-timeline .skills-bullets li > *{
   margin: 0;                          /* if any <p> inside li, remove default margins */
+}
+/* ===== Experience bullets — final (block + absolute chevron) ===== */
+.resume-timeline .skills-bullets{
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.resume-timeline .skills-bullets li{
+  position: relative;
+  display: block !important;     /* override any previous grid/flex */
+  padding-left: 26px;            /* space for chevron column */
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 1.55;
+  white-space: normal;
+  word-break: normal;
+}
+
+.resume-timeline .skills-bullets li::before{
+  content: "\203A";              /* › chevron; change to "▸" if you prefer */
+  position: absolute;
+  left: 0;
+  top: 0.25em;                   /* visually centered on first line */
+  width: 18px;                   /* fixed column width for the chevron */
+  text-align: center;
+  color: var(--accent);
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* Remove default margins if bullets contain <p> or other blocks */
+.resume-timeline .skills-bullets li > *{
+  margin: 0;
 }
