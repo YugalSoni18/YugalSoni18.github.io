@@ -204,3 +204,117 @@
   display:flex; align-items:baseline; justify-content:space-between; gap:12px;
 }
 .resume-entry .right-date{ font-style:italic; color:var(--muted); white-space:nowrap; }
+/* ===== Resume timeline + headings: precise alignment ===== */
+:root{
+  /* Position of the vertical line inside the content column */
+  --timeline-x: 30px;            /* tweak to 28–32px if needed */
+  --icon-bubble: 54px;           /* section icon bubble size */
+  --dot-size: 10px;              /* yellow dot size */
+}
+
+/* Section wrapper and bigger icon bubble */
+.resume-section{
+  position: relative;
+  /* keep text comfortably to the right of the line */
+  padding-left: calc(var(--timeline-x) + 40px);
+  margin: 24px 0;
+}
+.resume-section .section-icon{
+  position: absolute;
+  left: calc(var(--timeline-x) - (var(--icon-bubble) / 2)); /* centers bubble on line */
+  top: -4px;                      /* aligns with heading row */
+  width: var(--icon-bubble);
+  height: var(--icon-bubble);
+  border-radius: 50%;
+  background: #1a1c20;
+  border: 1px solid var(--ring);
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03), 0 8px 24px rgba(0,0,0,.35);
+  z-index: 2;
+}
+.resume-section .section-icon svg{
+  width: 22px; height: 22px;     /* slightly bigger icon */
+  fill: var(--accent);
+}
+
+/* Draw one vertical line that touches the bubble */
+.resume-section::after{
+  content:"";
+  position:absolute;
+  left: var(--timeline-x);
+  top: var(--icon-bubble);        /* starts exactly at the bubble bottom */
+  bottom: 0;
+  width: 2px;
+  background: var(--ring);
+  z-index: 1;
+}
+
+/* Timeline list uses our custom line (no default border-left) */
+.resume-timeline{
+  border-left: none !important;
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;                     /* padding handled by .resume-section */
+}
+
+/* Each item: pad text to the right of the line */
+.resume-timeline li{
+  position: relative;
+  padding: 14px 0 14px calc(var(--timeline-x) + 26px);
+}
+
+/* Yellow dots — smaller & centered ON the line */
+.resume-timeline .dot{
+  position: absolute;
+  left: calc(var(--timeline-x) - (var(--dot-size) / 2)); /* center on 2px line */
+  top: 22px;                       /* aligns with each entry's title row */
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255,211,77,.16);
+  z-index: 2;
+}
+
+/* Heading row spacing/alignment */
+.resume-entry .entry-row{
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.resume-entry .right-date{
+  font-style: italic;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Degree and job title in yellow; tighten the block below titles */
+.degree, .job-title{
+  color: var(--accent);
+  font-weight: 600;
+  margin: 2px 0 4px;
+}
+
+/* ===== Experience bullets: alignment & spacing ===== */
+.resume-timeline .skills-bullets{
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+.resume-timeline .skills-bullets li{
+  position: relative;
+  padding-left: 18px;            /* bullet width */
+  margin: 8px 0;                 /* tighter vertical rhythm */
+  font-size: 16px;               /* readable but not oversized */
+  line-height: 1.45;
+}
+.resume-timeline .skills-bullets li::before{
+  content: "›";
+  position: absolute;
+  left: 0;
+  top: 0.15em;                   /* vertically centered chevron */
+  color: var(--accent);
+  font-weight: 700;
+}
