@@ -1,0 +1,62 @@
+
+/* ===== Yugal Patch v2 (About page polish) ===== */
+
+:root{
+  --accent:#ffd34d;
+  --ring: rgba(255,255,255,0.06);
+  --card:#202228;
+  --panel:#1f2126;
+  --muted:#a5aab3;
+}
+
+/* Layout */
+.page{ display:grid; grid-template-columns:360px 1fr; gap:28px; }
+@media (max-width:900px){ .page{ grid-template-columns: 1fr; } }
+
+.content-card{ background:var(--panel); border:1px solid var(--ring); border-radius:18px; padding:22px; box-shadow:0 10px 28px rgba(0,0,0,.25); }
+
+/* Tabs */
+.tabs{ display:flex; gap:8px; justify-content:flex-end; margin:-10px -10px 18px 0; }
+.tab{ padding:10px 14px; border-radius:12px; text-decoration:none; color:#cfd3da; border:1px solid var(--ring); background:#181a1f; }
+.tab.active{ color:#111; background:var(--accent); border-color:var(--accent); font-weight:600; }
+.tab:hover{ filter:brightness(1.05); }
+
+/* Avatar tile (memoji stays same via src path) */
+:root{ --avatar-size:176px; }
+.avatar-tile{ width:calc(var(--avatar-size)+28px); height:calc(var(--avatar-size)+28px); border-radius:24px; background:linear-gradient(135deg,#3a3a3a,#2d2d2d); display:grid; place-items:center; box-shadow:inset 0 0 0 1px var(--ring), 0 10px 28px rgba(0,0,0,.35); margin:0 auto 16px; }
+.avatar-tile .avatar{ width:var(--avatar-size); height:var(--avatar-size); border-radius:50%; display:block; }
+
+/* Section titles with yellow line below */
+.section-title{ position:relative; margin:12px 0 8px; }
+.section-title::after{ content:""; display:block; width:44px; height:4px; background:var(--accent); border-radius:999px; margin-top:8px; }
+
+/* What I'm Doing — enforce 2x2 grid */
+.what-grid{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; margin-top:10px; }
+@media (max-width:760px){ .what-grid{ grid-template-columns:1fr; } }
+.what-card{ background:var(--card); border-radius:16px; padding:16px; border:1px solid var(--ring); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.what-card:hover{ transform: translateY(-6px); box-shadow:0 14px 30px rgba(0,0,0,.35); border-color: rgba(255,211,77,.5); }
+.what-icon svg{ width:28px; height:28px; fill: var(--accent); display:block; }
+.what-title{ font-weight:800; color:var(--accent); margin:8px 0 6px; }
+
+/* Resume pieces (used on resume.html) */
+.resume-timeline{ list-style:none; margin:0; padding:0 0 0 14px; border-left:2px solid var(--ring); }
+.resume-timeline li{ position:relative; padding:10px 0 10px 12px; }
+.resume-timeline .dot{ position:absolute; left:-7px; top:18px; width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px rgba(255,211,77,.15); }
+.resume-entry .resume-title{ margin-bottom:4px; }
+.resume-entry .resume-meta{ color:var(--muted); font-size:14px; }
+.skill-pills{ display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 14px; }
+.skill-pills span{ display:inline-block; padding:6px 10px; border-radius:999px; background:#2a2b30; border:1px solid var(--ring); font-size:14px; }
+
+/* Projects grid */
+.project-grid{ display:grid; grid-template-columns: repeat(1,1fr); gap:16px; }
+@media (min-width:900px){ .project-grid{ grid-template-columns: repeat(2,1fr); } }
+.project-card{ background:var(--card); border:1px solid var(--ring); border-radius:16px; overflow:hidden; }
+.project-card img{ width:100%; height:180px; object-fit:cover; display:block; background:#111; }
+.project-card h4{ margin:12px 12px 4px; }
+.project-card p{ margin:0 12px 12px; color:#cfd3da; }
+.project-actions{ display:flex; gap:10px; padding:0 12px 14px; }
+.btn-mini{ display:inline-flex; align-items:center; padding:8px 12px; border-radius:10px; text-decoration:none; background:var(--accent); color:#111; font-weight:600; border:1px solid var(--accent); }
+
+/* Center CV button */
+.sidebar.sidepanel .cv-btn-center{ display:flex; justify-content:center; }
+.sidebar.sidepanel .cv-btn-center .btn{ display:inline-flex; width:auto !important; margin:16px 0 0 0; padding:12px 18px; border-radius:14px; text-decoration:none; }
