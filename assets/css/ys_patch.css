@@ -337,3 +337,36 @@
   top: var(--dot-top) !important;
   /* keep your existing size/color/shadow from earlier */
 }
+/* ===== Lock the yellow dot exactly on the spine ===== */
+:root{
+  --timeline-x: 30px;          /* spine position */
+  --spine-adjust: 0px;         /* nudge spine/dot together: -1px, 0, +1px */
+  --dot-top: 22px;             /* vertical offset of the dot within each li */
+  --dot-size: 10px;            /* keep in sync with your existing size */
+}
+
+/* make sure our spine x is authoritative */
+.resume-section::after{
+  left: calc(var(--timeline-x) + var(--spine-adjust)) !important;
+}
+
+/* hide any old .dot element that might be positioned differently */
+.resume-timeline .dot{ display:none !important; }
+
+/* draw the dot from the list item itself, anchored to the same x as the spine */
+.resume-timeline li{
+  position: relative;
+  padding-left: calc(var(--timeline-x) + 26px);   /* text sits to the right of the spine */
+}
+.resume-timeline li::before{
+  content:"";
+  position:absolute;
+  left: calc(var(--timeline-x) + var(--spine-adjust)) !important;
+  top: var(--dot-top) !important;
+  width: var(--dot-size); height: var(--dot-size);
+  border-radius:50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(255,211,77,.16);
+  transform: translateX(-50%);                  /* centers the dot on the line */
+  z-index: 2;
+}
