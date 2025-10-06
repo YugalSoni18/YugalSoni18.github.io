@@ -223,3 +223,32 @@
   :root{ --timeline-x: 24px; }
   .resume-section{ padding-left: calc(var(--timeline-x) + 32px); }
 }
+/* ===== Experience bullets: perfectly aligned (grid) ===== */
+.resume-timeline .skills-bullets{
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.resume-timeline .skills-bullets li{
+  display: grid;
+  grid-template-columns: 14px 1fr;   /* chevron | text */
+  gap: 12px;
+  margin: 10px 0;
+  padding: 0;                         /* remove any hanging indent */
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.resume-timeline .skills-bullets li::before{
+  content: "›";
+  color: var(--accent);
+  font-weight: 800;
+  line-height: 1;
+  transform: translateY(2px);         /* nudge to vertical center of first line */
+}
+
+/* If any bullets were wrapped in <p>, kill the default margins */
+.resume-timeline .skills-bullets li > p{
+  margin: 0;
+}
