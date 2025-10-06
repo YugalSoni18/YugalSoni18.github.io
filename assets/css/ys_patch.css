@@ -1,68 +1,116 @@
-
-/* ===== Yugal Patch v2 (About page polish) ===== */
+/* ===============================
+   Yugal Soni — Patch Styles (all pages)
+   =============================== */
 
 :root{
-  --accent:#ffd34d;
-  --ring: rgba(255,255,255,0.06);
-  --card:#202228;
-  --panel:#1f2126;
-  --muted:#a5aab3;
+  --accent: #ffd34d;                 /* yellow */
+  --ring: rgba(255,255,255,0.08);    /* subtle borders */
+  --card: #202228;                   /* inner cards */
+  --panel: #1f2126;                  /* big panels */
+  --muted: #a5aab3;                  /* secondary text */
+
+  /* Resume timeline controls */
+  --timeline-x: 30px;                /* horizontal position of the vertical line */
+  --icon-bubble: 54px;               /* round icon bubble size */
+  --dot-size: 10px;                  /* yellow node size */
+
+  /* Avatar */
+  --avatar-size: 176px;
 }
 
-/* Layout */
-.page{ display:grid; grid-template-columns:360px 1fr; gap:28px; }
-@media (max-width:900px){ .page{ grid-template-columns: 1fr; } }
+/* --------- Layout: page + content card --------- */
+.page{
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 28px;
+}
+@media (max-width: 900px){
+  .page{ grid-template-columns: 1fr; }
+}
 
-.content-card{ background:var(--panel); border:1px solid var(--ring); border-radius:18px; padding:22px; box-shadow:0 10px 28px rgba(0,0,0,.25); }
+.content-card{
+  background: var(--panel);
+  border: 1px solid var(--ring);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.25);
+}
 
-/* Tabs */
-.tabs{ display:flex; gap:8px; justify-content:flex-end; margin:-10px -10px 18px 0; }
-.tab{ padding:10px 14px; border-radius:12px; text-decoration:none; color:#cfd3da; border:1px solid var(--ring); background:#181a1f; }
-.tab.active{ color:#111; background:var(--accent); border-color:var(--accent); font-weight:600; }
-.tab:hover{ filter:brightness(1.05); }
+/* --------- Tabs --------- */
+.tabs{
+  display:flex; gap:8px; justify-content:flex-end;
+  margin:-10px -10px 18px 0;
+}
+.tab{
+  padding:10px 14px; border-radius:12px; text-decoration:none;
+  color:#cfd3da; border:1px solid var(--ring); background:#181a1f;
+}
+.tab.active{
+  color:#111; background:var(--accent); border-color:var(--accent); font-weight:600;
+}
+.tab:hover{ filter: brightness(1.05); }
 
-/* Avatar tile (memoji stays same via src path) */
-:root{ --avatar-size:176px; }
-.avatar-tile{ width:calc(var(--avatar-size)+28px); height:calc(var(--avatar-size)+28px); border-radius:24px; background:linear-gradient(135deg,#3a3a3a,#2d2d2d); display:grid; place-items:center; box-shadow:inset 0 0 0 1px var(--ring), 0 10px 28px rgba(0,0,0,.35); margin:0 auto 16px; }
-.avatar-tile .avatar{ width:var(--avatar-size); height:var(--avatar-size); border-radius:50%; display:block; }
+/* --------- Sidebar: avatar tile + centered CV button --------- */
+.avatar-tile{
+  width: calc(var(--avatar-size) + 28px);
+  height: calc(var(--avatar-size) + 28px);
+  border-radius: 24px;
+  background: linear-gradient(135deg,#3a3a3a,#2d2d2d);
+  display: grid; place-items: center;
+  box-shadow: inset 0 0 0 1px var(--ring), 0 10px 28px rgba(0,0,0,.35);
+  margin: 0 auto 16px;
+}
+.avatar-tile .avatar{ width: var(--avatar-size); height: var(--avatar-size); border-radius:50%; display:block; }
 
-/* Section titles with yellow line below */
+.sidebar.sidepanel .cv-btn-center{ display:flex; justify-content:center; }
+.sidebar.sidepanel .cv-btn-center .btn{
+  display:inline-flex; width:auto !important; margin:16px 0 0 0;
+  padding:12px 18px; border-radius:14px; text-decoration:none;
+}
+
+/* --------- Section titles (yellow underline) --------- */
 .section-title{ position:relative; margin:12px 0 8px; }
-.section-title::after{ content:""; display:block; width:44px; height:4px; background:var(--accent); border-radius:999px; margin-top:8px; }
+.section-title::after{
+  content:""; display:block; width:44px; height:4px;
+  background:var(--accent); border-radius:999px; margin-top:8px;
+}
 
-/* What I'm Doing — enforce 2x2 grid */
-.what-grid{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; margin-top:10px; }
-@media (max-width:760px){ .what-grid{ grid-template-columns:1fr; } }
-.what-card{ background:var(--card); border-radius:16px; padding:16px; border:1px solid var(--ring); transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
-.what-card:hover{ transform: translateY(-6px); box-shadow:0 14px 30px rgba(0,0,0,.35); border-color: rgba(255,211,77,.5); }
+/* =========================================
+   ABOUT — “What I’m Doing” (2×2 grid)
+   ========================================= */
+.what-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:14px; margin-top:10px;
+}
+@media (max-width: 760px){
+  .what-grid{ grid-template-columns: 1fr; }
+}
+.what-card{
+  background: var(--card);
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid var(--ring);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.what-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.35);
+  border-color: rgba(255,211,77,.5);
+}
 .what-icon svg{ width:28px; height:28px; fill: var(--accent); display:block; }
 .what-title{ font-weight:800; color:var(--accent); margin:8px 0 6px; }
 
-/* Resume pieces (used on resume.html) */
-.resume-timeline{ list-style:none; margin:0; padding:0 0 0 14px; border-left:2px solid var(--ring); }
-.resume-timeline li{ position:relative; padding:10px 0 10px 12px; }
-.resume-timeline .dot{ position:absolute; left:-7px; top:18px; width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px rgba(255,211,77,.15); }
-.resume-entry .resume-title{ margin-bottom:4px; }
-.resume-entry .resume-meta{ color:var(--muted); font-size:14px; }
-.skill-pills{ display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 14px; }
-.skill-pills span{ display:inline-block; padding:6px 10px; border-radius:999px; background:#2a2b30; border:1px solid var(--ring); font-size:14px; }
+/* =========================================
+   PROJECTS — grid + yellow titles + centered GitHub
+   ========================================= */
+.project-grid{ display:grid; grid-template-columns: 1fr; gap:16px; }
+@media (min-width: 900px){ .project-grid{ grid-template-columns: repeat(2,1fr); } }
 
-/* Projects grid */
-.project-grid{ display:grid; grid-template-columns: repeat(1,1fr); gap:16px; }
-@media (min-width:900px){ .project-grid{ grid-template-columns: repeat(2,1fr); } }
-.project-card{ background:var(--card); border:1px solid var(--ring); border-radius:16px; overflow:hidden; }
-.project-card img{ width:100%; height:180px; object-fit:cover; display:block; background:#111; }
-.project-card h4{ margin:12px 12px 4px; }
-.project-card p{ margin:0 12px 12px; color:#cfd3da; }
-.project-actions{ display:flex; gap:10px; padding:0 12px 14px; }
-.btn-mini{ display:inline-flex; align-items:center; padding:8px 12px; border-radius:10px; text-decoration:none; background:var(--accent); color:#111; font-weight:600; border:1px solid var(--accent); }
-
-/* Center CV button */
-.sidebar.sidepanel .cv-btn-center{ display:flex; justify-content:center; }
-.sidebar.sidepanel .cv-btn-center .btn{ display:inline-flex; width:auto !important; margin:16px 0 0 0; padding:12px 18px; border-radius:14px; text-decoration:none; }
-
-/* --- Projects: yellow titles, hover lift, centered GitHub icon --- */
 .project-card{
+  background: var(--card);
+  border:1px solid var(--ring);
+  border-radius:16px; overflow:hidden;
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 .project-card:hover{
@@ -70,251 +118,108 @@
   box-shadow: 0 14px 30px rgba(0,0,0,.35);
   border-color: rgba(255,211,77,.5);
 }
-.project-card h4{
-  color: var(--accent);          /* yellow titles */
-  font-weight: 700;
-}
-.project-actions{
-  display: flex;
-  justify-content: center;       /* center the icon */
-  padding: 10px 0 16px;
-}
+.project-card img{ width:100%; height:180px; object-fit:cover; display:block; background:#111; }
+.project-card h4{ margin:12px 12px 4px; color: var(--accent); font-weight:700; }
+.project-card p{ margin:0 12px 12px; color:#cfd3da; }
+.project-actions{ display:flex; justify-content:center; padding:10px 0 16px; }
 .gh-icon{
-  width: 46px; height: 46px;
-  display: grid; place-items: center;
-  border-radius: 999px;
-  background: #2a2b30;
-  border: 1px solid var(--ring);
+  width:46px; height:46px; display:grid; place-items:center;
+  border-radius:999px; background:#2a2b30; border:1px solid var(--ring);
   transition: transform .15s ease, box-shadow .15s ease;
 }
-.gh-icon svg{
-  width: 22px; height: 22px;
-  fill: var(--accent);
-}
+.gh-icon svg{ width:22px; height:22px; fill: var(--accent); }
 .gh-icon:hover{ transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,.35); }
 
-/* Ensure thumbnails display properly */
-.project-card img{
-  display:block; width:100%; height:180px; object-fit:cover; background:#111;
-}
-/* ===== Resume page polish (icons + rows + bullets) ===== */
+/* =========================================
+   RESUME — Nikita-style timeline
+   (icon bubble + vertical spine + centered dots)
+   ========================================= */
 
-/* Icon bubble before section headings */
-.resume-section{ position:relative; padding-left:44px; margin:18px 0; }
-.resume-section .section-icon{
-  position:absolute; left:-6px; top:2px;
-  width:36px; height:36px; border-radius:50%;
-  background:#1a1c20; border:1px solid var(--ring);
-  display:grid; place-items:center; box-shadow:0 2px 10px rgba(0,0,0,.2);
-}
-.resume-section .section-icon svg{ width:18px; height:18px; fill:var(--accent); }
-
-/* Timeline (already present, but keep for spacing) */
-.resume-timeline{ list-style:none; margin:8px 0 0; padding:0 0 0 14px; border-left:2px solid var(--ring); }
-.resume-timeline li{ position:relative; padding:12px 0 12px 12px; }
-.resume-timeline .dot{
-  position:absolute; left:-7px; top:22px; width:10px; height:10px; border-radius:50%;
-  background:var(--accent); box-shadow:0 0 0 3px rgba(255,211,77,.15);
-}
-
-/* Row with right-aligned italic dates */
-.resume-entry .entry-row{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
-.resume-entry .right-date{ font-style:italic; color:var(--muted); white-space:nowrap; }
-
-/* Yellow emphasis for degree and job title */
-.degree, .job-title{ color:var(--accent); font-weight:600; }
-
-/* Bulleted lists with nice chevrons */
-.skills-bullets{ list-style:none; margin:6px 0 6px; padding:0; }
-.skills-bullets li{
-  position:relative; padding-left:18px; margin:6px 0;
-}
-.skills-bullets li::before{
-  content:"›"; position:absolute; left:0; top:0; color:var(--accent); line-height:1.1;
-}
-/* ===== Timeline aligned with section icon (Nikita-style) ===== */
-:root{
-  /* X position of the vertical line measured from the left edge of the content card */
-  --timeline-x: 28px;
-  --icon-bubble: 56px;           /* size of the round icon bubble */
-}
-
-/* Section wrapper + bigger icon bubble */
+/* Section wrapper and icon bubble */
 .resume-section{
   position: relative;
-  padding-left: calc(var(--timeline-x) + 36px); /* keeps text to the right of the line */
+  padding-left: calc(var(--timeline-x) + 40px);  /* text sits right of the spine */
   margin: 24px 0;
 }
 .resume-section .section-icon{
   position: absolute;
-  left: calc(var(--timeline-x) - (var(--icon-bubble) / 2));  /* center bubble on the line */
-  top: -6px;
-  width: var(--icon-bubble);
-  height: var(--icon-bubble);
+  left: calc(var(--timeline-x) - (var(--icon-bubble) / 2));  /* bubble centered on spine */
+  top: -4px;                                                 /* aligns with h2 row */
+  width: var(--icon-bubble); height: var(--icon-bubble);
   border-radius: 50%;
   background: #1a1c20;
   border: 1px solid var(--ring);
-  display: grid;
-  place-items: center;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03), 0 8px 24px rgba(0,0,0,.35);
-  z-index: 2; /* sits above the line */
-}
-.resume-section .section-icon svg{
-  width: 24px; height: 24px;     /* bigger icon */
-  fill: var(--accent);
-}
-
-/* Draw the vertical line that TOUCHES the bubble */
-.resume-section::after{
-  content:"";
-  position:absolute;
-  left: var(--timeline-x);
-  top: var(--icon-bubble);        /* starts exactly at bubble bottom */
-  bottom: 0;
-  width: 2px;
-  background: var(--ring);
-  z-index: 1;
-}
-
-/* Use the custom line; turn off any old left border on the list */
-.resume-timeline{
-  border-left: none !important;
-  list-style: none;
-  margin: 8px 0 0;
-  padding: 0 0 0 0;               /* padding now handled by .resume-section */
-}
-
-/* Entries + yellow dots centered ON the line */
-.resume-timeline li{
-  position: relative;
-  padding: 16px 0 16px calc(var(--timeline-x) + 24px);   /* text offset to right of line */
-}
-.resume-timeline .dot{
-  position: absolute;
-  left: calc(var(--timeline-x) - 7px);  /* centers 14px dot on 2px line */
-  top: 24px;
-  width: 14px; height: 14px; border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(255,211,77,.18);
-  z-index: 2; /* above the line */
-}
-
-/* Date on the right; keep your previous row layout */
-.resume-entry .entry-row{
-  display:flex; align-items:baseline; justify-content:space-between; gap:12px;
-}
-.resume-entry .right-date{ font-style:italic; color:var(--muted); white-space:nowrap; }
-/* ===== Resume timeline + headings: precise alignment ===== */
-:root{
-  /* Position of the vertical line inside the content column */
-  --timeline-x: 30px;            /* tweak to 28–32px if needed */
-  --icon-bubble: 54px;           /* section icon bubble size */
-  --dot-size: 10px;              /* yellow dot size */
-}
-
-/* Section wrapper and bigger icon bubble */
-.resume-section{
-  position: relative;
-  /* keep text comfortably to the right of the line */
-  padding-left: calc(var(--timeline-x) + 40px);
-  margin: 24px 0;
-}
-.resume-section .section-icon{
-  position: absolute;
-  left: calc(var(--timeline-x) - (var(--icon-bubble) / 2)); /* centers bubble on line */
-  top: -4px;                      /* aligns with heading row */
-  width: var(--icon-bubble);
-  height: var(--icon-bubble);
-  border-radius: 50%;
-  background: #1a1c20;
-  border: 1px solid var(--ring);
-  display: grid;
-  place-items: center;
+  display: grid; place-items:center;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03), 0 8px 24px rgba(0,0,0,.35);
   z-index: 2;
 }
-.resume-section .section-icon svg{
-  width: 22px; height: 22px;     /* slightly bigger icon */
-  fill: var(--accent);
-}
+.resume-section .section-icon svg{ width:22px; height:22px; fill:var(--accent); }
 
-/* Draw one vertical line that touches the bubble */
+/* Single vertical spine that touches the bubble */
 .resume-section::after{
   content:"";
   position:absolute;
   left: var(--timeline-x);
-  top: var(--icon-bubble);        /* starts exactly at the bubble bottom */
+  top: var(--icon-bubble);    /* starts at the bubble bottom */
   bottom: 0;
-  width: 2px;
-  background: var(--ring);
+  width: 2px; background: var(--ring);
   z-index: 1;
 }
 
-/* Timeline list uses our custom line (no default border-left) */
-.resume-timeline{
-  border-left: none !important;
-  list-style: none;
-  margin: 8px 0 0;
-  padding: 0;                     /* padding handled by .resume-section */
+/* Remove any old spine styles from base CSS */
+.resume-timeline,
+.resume-timeline::before,
+.resume-timeline::after{
+  border: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
 }
 
-/* Each item: pad text to the right of the line */
+/* Timeline list and entries */
+.resume-timeline{
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;                 /* spacing handled by .resume-section */
+}
 .resume-timeline li{
   position: relative;
   padding: 14px 0 14px calc(var(--timeline-x) + 26px);
 }
 
-/* Yellow dots — smaller & centered ON the line */
+/* Yellow dots — small & centered on the spine */
 .resume-timeline .dot{
   position: absolute;
-  left: calc(var(--timeline-x) - (var(--dot-size) / 2)); /* center on 2px line */
-  top: 22px;                       /* aligns with each entry's title row */
-  width: var(--dot-size);
-  height: var(--dot-size);
+  left: calc(var(--timeline-x) - (var(--dot-size) / 2));
+  top: 22px;                   /* aligns with entry title row */
+  width: var(--dot-size); height: var(--dot-size);
   border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 0 3px rgba(255,211,77,.16);
   z-index: 2;
 }
 
-/* Heading row spacing/alignment */
+/* Entry title row and right-aligned italic dates */
 .resume-entry .entry-row{
-  display:flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
+  display:flex; align-items:baseline; justify-content:space-between; gap:12px;
 }
-.resume-entry .right-date{
-  font-style: italic;
-  color: var(--muted);
-  white-space: nowrap;
+.resume-entry .right-date{ font-style:italic; color:var(--muted); white-space:nowrap; }
+
+/* Yellow emphasis lines */
+.degree, .job-title{ color: var(--accent); font-weight:600; margin: 2px 0 4px; }
+
+/* Bulleted lists (skills & experience points) */
+.skills-bullets{ list-style:none; margin:8px 0 0; padding:0; }
+.skills-bullets li{
+  position:relative; padding-left:18px; margin:8px 0;
+  font-size:16px; line-height:1.5;
+}
+.skills-bullets li::before{
+  content:"›"; position:absolute; left:0; top:0.2em;
+  color:var(--accent); font-weight:700;
 }
 
-/* Degree and job title in yellow; tighten the block below titles */
-.degree, .job-title{
-  color: var(--accent);
-  font-weight: 600;
-  margin: 2px 0 4px;
-}
-
-/* ===== Experience bullets: alignment & spacing ===== */
-.resume-timeline .skills-bullets{
-  list-style: none;
-  margin: 8px 0 0;
-  padding: 0;
-}
-.resume-timeline .skills-bullets li{
-  position: relative;
-  padding-left: 18px;            /* bullet width */
-  margin: 8px 0;                 /* tighter vertical rhythm */
-  font-size: 16px;               /* readable but not oversized */
-  line-height: 1.45;
-}
-.resume-timeline .skills-bullets li::before{
-  content: "›";
-  position: absolute;
-  left: 0;
-  top: 0.15em;                   /* vertically centered chevron */
-  color: var(--accent);
-  font-weight: 700;
+/* Small-screen tweak so nothing overlaps */
+@media (max-width: 860px){
+  :root{ --timeline-x: 24px; }
+  .resume-section{ padding-left: calc(var(--timeline-x) + 32px); }
 }
