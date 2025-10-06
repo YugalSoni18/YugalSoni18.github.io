@@ -318,3 +318,22 @@
 .resume-timeline .skills-bullets li > *{
   margin: 0;
 }
+/* --- Final alignment: dot centered exactly on the spine --- */
+:root{
+  /* tiny knobs to nudge if needed */
+  --spine-adjust: 0px;   /* -1px or +1px if the dot looks a hair off */
+  --dot-top: 22px;       /* vertical position of the dot per item */
+}
+
+.resume-section::after{
+  /* make sure the spine uses the same anchor */
+  left: calc(var(--timeline-x) + var(--spine-adjust)) !important;
+}
+
+.resume-timeline .dot{
+  /* anchor dot to the same x as the spine, then center it */
+  left: calc(var(--timeline-x) + var(--spine-adjust)) !important;
+  transform: translateX(-50%);
+  top: var(--dot-top) !important;
+  /* keep your existing size/color/shadow from earlier */
+}
