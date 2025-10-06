@@ -252,3 +252,35 @@
 .resume-timeline .skills-bullets li > p{
   margin: 0;
 }
+/* ===== Fix: Experience bullets wrap correctly (use flex, full width) ===== */
+.resume-timeline .skills-bullets{
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.resume-timeline .skills-bullets li{
+  display: flex !important;          /* override earlier grid */
+  align-items: flex-start;
+  gap: 12px;
+  margin: 10px 0;
+  padding: 0;
+  width: 100%;
+  min-width: 0;                       /* allow natural line wrapping */
+  white-space: normal;
+  word-break: normal;
+}
+
+.resume-timeline .skills-bullets li::before{
+  content: "›";
+  color: var(--accent);
+  font-weight: 800;
+  line-height: 1;
+  flex: 0 0 16px;                     /* fixed column for chevron */
+  display: inline-block;
+  margin-top: 2px;                    /* slight vertical align */
+}
+
+.resume-timeline .skills-bullets li > *{
+  margin: 0;                          /* if any <p> inside li, remove default margins */
+}
