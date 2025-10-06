@@ -12,7 +12,7 @@
   /* Resume timeline controls */
   --timeline-x: 30px;                /* horizontal position of the vertical line */
   --icon-bubble: 54px;               /* round icon bubble size */
-  --dot-size: 10px;                  /* yellow node size */
+  --dot-size: 8px;                  /* yellow node size */
 
   /* Avatar */
   --avatar-size: 176px;
@@ -144,7 +144,7 @@
 .resume-section .section-icon{
   position: absolute;
   left: calc(var(--timeline-x) - (var(--icon-bubble) / 2));  /* bubble centered on spine */
-  top: -2px;                                                 /* aligns with h2 row */
+  top: 0px;                                                 /* aligns with h2 row */
   width: var(--icon-bubble); height: var(--icon-bubble);
   border-radius: 50%;
   background: #1a1c20;
