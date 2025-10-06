@@ -262,7 +262,7 @@
 .resume-timeline .skills-bullets li{
   display: flex !important;          /* override earlier grid */
   align-items: flex-start;
-  gap: 12px;
+  gap: 14px;
   margin: 10px 0;
   padding: 0;
   width: 100%;
