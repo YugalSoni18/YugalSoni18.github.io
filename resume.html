@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Resume · Yugal Soni</title>
   <link rel="stylesheet" href="assets/css/style.css"/>
-  <link rel="stylesheet" href="assets/css/ys_patch.css">
+  <link rel="stylesheet" href="assets/css/ys_patch.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="page">
 
-  <!-- Sidebar (reused) -->
+  <!-- Sidebar (same as About) -->
   <aside class="sidebar sidepanel">
-    <div class="avatar-tile">
+    <div class="avatar-wrap">
       <img class="avatar" src="assets/img/avatar.png" alt="Yugal Soni avatar">
     </div>
     <h1 class="name">Yugal Soni</h1>
@@ -55,6 +55,7 @@
     </div>
   </aside>
 
+  <!-- Right content -->
   <main class="content">
     <div class="content-card">
       <nav class="tabs">
@@ -63,40 +64,88 @@
         <a class="tab" href="projects.html">Projects</a>
       </nav>
 
-      <h2>Education</h2>
-      <ul class="resume-timeline">
-        <li>
-          <div class="dot"></div>
-          <div class="resume-entry">
-            <div class="resume-title"><strong>MSc Business Analytics & Decision Science</strong> — University of Leeds</div>
-            <div class="resume-meta">2024–2025</div>
-          </div>
-        </li>
-      </ul>
+      <!-- ===== Education ===== -->
+      <div class="resume-section">
+        <div class="section-icon" aria-hidden="true">
+          <!-- mortarboard -->
+          <svg viewBox="0 0 24 24"><path d="M12 3l10 5-10 5L2 8l10-5zm0 6l6.5-3.25L12 2.5 5.5 5.75 12 9zM6 12v4c0 1.66 2.69 3 6 3s6-1.34 6-3v-4l-6 3-6-3z"/></svg>
+        </div>
+        <h2>Education</h2>
 
-      <h2>Skills</h2>
-      <div class="skill-pills">
-        <span>R</span><span>Python</span><span>SQL</span><span>SPSS</span><span>Power BI</span><span>Excel</span>
-        <span>Forecasting (ARIMA/ETS)</span><span>NLP</span><span>MCDA (WSM/TOPSIS)</span>
+        <ul class="resume-timeline">
+          <li>
+            <div class="dot"></div>
+            <div class="resume-entry">
+              <div class="entry-row">
+                <div class="resume-title"><strong>University of Leeds, UK</strong></div>
+                <div class="right-date"><em>Sept 2024 — Sept 2025</em></div>
+              </div>
+              <div class="degree">MSc in Business Analytics and Decision Science</div>
+              <div class="resume-meta">
+                <strong>Key modules:</strong> Forecasting &amp; Advanced Analytics, Quantitative Analysis, Business Decision Science,
+                Data Visualisation, Evidence-Based Consultancy
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="dot"></div>
+            <div class="resume-entry">
+              <div class="entry-row">
+                <div class="resume-title"><strong>MIT World Peace University, India</strong></div>
+                <div class="right-date"><em>Jun 2019 — May 2022</em></div>
+              </div>
+              <div class="degree">Bachelor's in Business Administration — Finance</div>
+              <div class="resume-meta">CGPA: 9.05/10</div>
+            </div>
+          </li>
+        </ul>
       </div>
 
-      <h2>Experience</h2>
-      <ul class="resume-timeline">
-        <li>
-          <div class="dot"></div>
-          <div class="resume-entry">
-            <div class="resume-title"><strong>Business Development Executive</strong> — Cyperts Digital Solutions (AI & Blockchain)</div>
-            <div class="resume-meta">Jan 2023 – Feb 2024 · Email marketing & lead gen (Zoho/Salesforce); data cleaning (Excel/SQL); reporting with R & Power BI.</div>
-          </div>
-        </li>
-        <li>
-          <div class="dot"></div>
-          <div class="resume-entry">
-            <div class="resume-title"><strong>Shift Leader (Training)</strong> — Taco Bell</div>
-            <div class="resume-meta">Customer ops, team coordination, training support.</div>
-          </div>
-        </li>
-      </ul>
+      <!-- ===== Skills ===== -->
+      <div class="resume-section">
+        <div class="section-icon" aria-hidden="true">
+          <!-- sliders / tools -->
+          <svg viewBox="0 0 24 24"><path d="M4 7h10v2H4V7zm0 8h16v2H4v-2zm6-4h10v2H10v-2zM19 6h1v4h-1V6zM13 10h1v4h-1v-4zM6 14h1v4H6v-4z"/></svg>
+        </div>
+        <h2>Skills</h2>
+
+        <ul class="skills-bullets">
+          <li><strong>Analytics &amp; Programming:</strong> R, Python (pandas, scikit-learn, NLP basics), SQL, SPSS</li>
+          <li><strong>Business Intelligence:</strong> Power BI, Tableau (basic), Advanced Excel</li>
+          <li><strong>Modelling &amp; Methods:</strong> Forecasting, Regression, Time Series, Sentiment &amp; Topic Modelling, Multi-Criteria Decision Analysis</li>
+          <li><strong>Tools &amp; Platforms:</strong> Salesforce, Zoho CRM, Jupyter Notebook, GitHub, Canva</li>
+        </ul>
+      </div>
+
+      <!-- ===== Experience ===== -->
+      <div class="resume-section">
+        <div class="section-icon" aria-hidden="true">
+          <!-- briefcase -->
+          <svg viewBox="0 0 24 24"><path d="M9 6V4h6v2h5a2 2 0 0 1 2 2v3H2V8a2 2 0 0 1 2-2h5zm13 6H2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6z"/></svg>
+        </div>
+        <h2>Experience</h2>
+
+        <ul class="resume-timeline">
+          <li>
+            <div class="dot"></div>
+            <div class="resume-entry">
+              <div class="entry-row">
+                <div class="resume-title"><strong>Cyperts Digital Solutions Pvt. Ltd., India</strong></div>
+                <div class="right-date"><em>Jan 2023 — Feb 2024</em></div>
+              </div>
+              <div class="job-title">Business Development Executive</div>
+              <ul class="skills-bullets">
+                <li>Generated ₹25 Lakhs+ (~£25K) in revenue from UK &amp; US clients through analytics-driven targeting.</li>
+                <li>Processed 200+ daily B2B leads using SQL &amp; Excel, improving accuracy &amp; conversion.</li>
+                <li>Built financial dashboards in R &amp; Power BI for consulting clients.</li>
+                <li>Increased campaign response rates by 18% via data-driven email marketing with Zoho &amp; Salesforce.</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+
     </div>
   </main>
 
