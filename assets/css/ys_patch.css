@@ -144,7 +144,7 @@
 .resume-section .section-icon{
   position: absolute;
   left: calc(var(--timeline-x) - (var(--icon-bubble) / 2));  /* bubble centered on spine */
-  top: 4px;                                                 /* aligns with h2 row */
+  top: -10px;                                                 /* aligns with h2 row */
   width: var(--icon-bubble); height: var(--icon-bubble);
   border-radius: 50%;
   background: #1a1c20;
